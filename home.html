@@ -1,0 +1,100 @@
+<div class="" ng-controller="HomeCtrl">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Welcome {{ user }} <span class="glyphicon glyphicon-log-in"></span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+   <a href="#/home/:add" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Add Records</a>
+    <h3>Add and Delete Product List</h3>
+    <p class="alert alert-success" ng-bind="successMsg"></p>
+      <table class="table table-striped">
+          <tbody>
+              <tr>
+                  <th>Product Name</th>
+                  <th>Rate</th>
+                  <th>Quality</th>
+                  <th>Action</th>
+              </tr>
+              <tr ng-repeat="contact in contacts">
+                   <td>{{contact.name}}</td>
+                  <td>{{contact.rate}}</td>
+                  <td>{{contact.quality}}</td>
+                  <td> 
+          
+                   <a class="btn btn-sm btn-danger" href="javascript: void(0);" ng-click="delete($index)">Delete</a></td>
+              </tr>
+          </tbody>
+      </table>
+
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add the records</h4>
+        </div>
+        <div class="modal-body">
+         
+      <div class="">
+      <p class="alert alert-success" ng-bind="successMsg"></p>
+       <form name="crud" novalidate>
+        <!-- <div class="form-group" style="">
+          <label for="id">Product id:</label>
+          <input class="form-control" type="hidden" value="{{newContact.id}}" ng-model="newContact.id" />
+          <p ng-show="crud.productName.$error.required && (crud.productName.$dirty || submitted)" class="help-block">You name is required.</p>
+        </div>  -->
+       <div class="form-group" ng-class="{ 'has-error' : curd.productName.$invalid && (curd.productName.$dirty )}">
+        <label for="name">Product Name:</label>
+        <input type="text"  name="productName" class="form-control" ng-model="newContact.name" ng-required="true">
+        <p ng-show="crud.productName.$error.required && (crud.productName.$dirty || submitted)" class="help-block">Product name is required.</p>
+      </div>  
+        <div class="form-group" ng-class="{ 'has-error' : curd.rate.$invalid && (curd.rate.$dirty )}">
+        <label for="rate">Product Rate:</label>
+        <input type="text" class="form-control" name="rate" ng-model="newContact.rate" ng-required="true" ng-pattern="/^[0-9]/">
+        <p ng-show="crud.rate.$error.required && (crud.rate.$dirty )" class="help-block">Rate is required.</p>
+        <p ng-show="crud.rate.$error.pattern">Not a valid number!</p>
+      </div>  
+      <div class="form-group" ng-class="{ 'has-error' : curd.quality.$invalid && (curd.quality.$dirty )}">
+        <label for="quality">Product Quality:</label>
+       <!--  <input class="form-control" name="quality" ng-model="newContact.quality" ng-required="true"> -->
+         <select class="form-control" name="quality" ng-model="newContact.quality" ng-required="true">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select> 
+        <p ng-show="crud.quality.$error.required && (crud.quality.$dirty || submitted)" class="help-block">quality is required.</p>
+      </div>  
+        <div>
+            <input type="hidden" value="{{newContact.id}}" ng-model="newContact.id" />
+            <button ng-disabled="!crud.$valid" type="submit" ng-click="save()" data-dismiss="modal">Save</button>
+        </div>
+    </form>
+       
+      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</div>
+
+
+
+<!-- angular-view has loads other views of the main nav links  -->
+

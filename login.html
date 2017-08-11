@@ -1,0 +1,22 @@
+<div class="col-sm-4 col-sm-offset-4">
+	<form ng-submit="login(useremail, password)" class="ng-scope ng-pristine ng-valid loginform">
+		<div class="alert alert-success">
+			<p><strong>Email :</strong>clarion@clarion.com</p>
+			<p><strong>Password :</strong> Clarion123</p>
+		</div>
+		<h3 class="text-center">Login Page</h3>
+		<div class="form-group">
+			<label>User Email</label>
+		  <input type="email" ng-model="useremail" class="ng-pristine ng-valid form-control">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+		  <input type="password" ng-model="password" class="ng-pristine ng-valid form-control">
+		</div>
+		<br/>
+	 	<p> {{loginError}}  {{loggedUser}}</p>
+		<button class="btn btn-success" ng-click="">Submit</button>
+	  	<button class="btn btn-warning" ng-click="cancel()" >Cancel</button>
+	</form>
+</div>
+

@@ -1,0 +1,9 @@
+.loginform{
+	border:1px solid #ddd;
+	margin-top:20%;
+	display: inline-block;
+	width:100%;
+	padding:10px;
+	border-radius: 10px;
+}
+
